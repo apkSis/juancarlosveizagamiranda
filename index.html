@@ -1,574 +1,986 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Juan Carlos Veizaga Miranda | Hoja de Vida Profesional</title>
-  <meta name="description" content="Portafolio profesional de Juan Carlos Veizaga Miranda, consultor en transformación digital, IT/OT y ciberseguridad industrial.">
-  
-  <style>
-    /*
-     * ======================================================
-     * ESTILOS GLOBALES Y VARIABLES DE ALTURA (OFFLINE-FIRST)
-     * ======================================================
-     */
-    :root {
-      /* Alturas definidas para escritorio (PC) */
-      --header-height-pc: 120px; 
-      --navbar-height-pc: 60px;  
-      --total-fixed-height-pc: calc(var(--header-height-pc) + var(--navbar-height-pc) + 5px); /* + 5px de seguridad */
-
-      /* Alturas definidas para móvil */
-      --header-height-mobile: 95px; 
-      --navbar-height-mobile: 45px; 
-      --total-fixed-height-mobile: calc(var(--header-height-mobile) + var(--navbar-height-mobile));
-    }
-
-    body {
-      font-family: "Arial", sans-serif;
-      background: linear-gradient(120deg, #f5f7fa, #e4ecf2);
-      /* CORRECCIÓN: Evita el desplazamiento horizontal */
-      overflow-x: hidden;
-      margin: 0;
-      /* Padding-top inicial para compensar Header y Navbar fijos */
-      /* CORRECCIÓN: Fuerza a que el padding y el border se incluyan en el ancho/alto */
-      box-sizing: border-box;
-      padding-top: var(--total-fixed-height-pc); 
-      line-height: 1.6;
-    }
-
-    /* Contenedor principal para centrar el contenido */
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 1rem; /* Padding horizontal para evitar que el contenido toque los bordes */
-    }
-
-    /*
-     * ======================================================
-     * CABECERA (HEADER) - FIJA Y OPTIMIZADA
-     * ======================================================
-     */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1030;
-      background: rgba(31, 42, 68, 0.98);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 2rem;
-      height: var(--header-height-pc); 
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      backdrop-filter: blur(6px);
-    }
-
-    .header-text {
-      flex: 1;
-      color: #fff;
-      align-self: flex-start; 
-      padding-top: 5px;
-    }
-
-    .header-text h1 {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 0; 
-      color: #fff;
-    }
-
-    .header-text p {
-      margin: 0;
-      font-size: 0.85rem; /* Letras delgadas y pequeñas en PC */
-      color: #fff;
-      line-height: 1.2;
-    }
-
-    .header-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-      margin-left: 1rem;
-      transition: transform 0.4s ease;
-      flex-shrink: 0; 
-      /* CORRECCIÓN: La imagen ya no saldrá de la página gracias a la altura fija del header y flex-shrink */
-    }
-     
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      body {
-    /* CORRECCIÓN: La imagen de perfil (.header-photo) estaba causando el problema no directamente. */
-      }
-
-    /*
-     * ======================================================
-     * BARRA DE NAVEGACIÓN (NAVBAR) - COMPACTA Y FIJA
-     * ======================================================
-     */
-    .navbar {
-      position: fixed;
-      top: var(--header-height-pc); 
-      width: 100%;
-      background-color: rgba(31, 42, 68, 0.98);
-      z-index: 1020;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      backdrop-filter: blur(5px);
-      padding: 0; 
-      min-height: var(--navbar-height-pc);
-      /* Usaremos flexbox puro para centrar y justificar */
-      display: flex;
-      justify-content: center;
-    }
-
-    .navbar-menu {
-        display: flex; /* Mostrar en PC */
-        width: 100%;
-        justify-content: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUAN CARLOS VEIZAGA MIRANDA - CV</title>
     
-    .navbar-nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar-nav li {
-        margin: 0 0.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      display: block;
-      color: white;
-      font-weight: 500;
-      text-decoration: none;
-      /* CORRECCIÓN: Padding vertical reducido para compactar la barra */
-      padding: 0.6rem 1rem; 
-      transition: background-color 0.3s;
-    }
+    <!-- PRE-CARGA CRÍTICA DE FUENTES PARA EVITAR FOUT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
     
-    .navbar-nav .nav-link:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Botón Toggler (Oculto en PC) */
-    .navbar-toggler {
-        display: none;
-        padding: 0.3rem 0.75rem;
-        cursor: pointer;
-        background: transparent;
-        border: 1px solid white;
-        color: white;
-        border-radius: 0.25rem;
-        margin-right: 2rem;
-        font-size: 1.5rem;
-        line-height: 1;
-    }
+    <!-- Iconos (FontAwesome CSS Only) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /*
-     * ======================================================
-     * SECCIONES DE CONTENIDO
-     * ======================================================
-     */
-    section {
-      display: none;
-      padding: 2rem 1.5rem;
-      max-width: 1100px;
-      margin: 2rem auto;
-      background-color: rgba(255,255,255,0.93);
-      border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    section.active {
-      display: block;
-    }
-    
-    h3 {
-      color: #1f2a44;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-    
-    /* Scroll Offset (Soluciona el taponamiento del contenido por el header fijo) */
-    @supports (scroll-margin-top: 1px) {
-        section {
-            scroll-margin-top: var(--total-fixed-height-pc); 
+    <style>
+        /* 1. Tema y Estilos (Tech Neon Corporate) */
+        :root {
+            --bg-main: #0d1117;
+            --bg-sidebar: #161b22;
+            --bg-card: #1f242d;
+            --accent: #00f2fe;
+            --text-main: #c9d1d9;
+            --text-sec: #8b949e;
+            
+            --font-title: 'Barlow Condensed', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --sidebar-width: 260px;
+            --sidebar-collapsed-width: 80px;
+            --topnav-height: 70px;
+            
+            /* Responsive Typography Base */
+            --font-size-base: 14px;
+            --spacing-base: 1rem;
         }
-    }
 
-    /*
-     * ======================================================
-     * ESTILO DE BOTONES Y FORMULARIOS (SIN BOOTSTRAP)
-     * ======================================================
-     */
-    
-    /* Botón Principal (Azul - CORRECCIÓN DE ESTÉTICA) */
-    .btn-color {
-      background-color: #0097a7;
-      color: white;
-      border: none;
-      transition: 0.3s;
-      padding: 0.6rem 1.5rem; 
-      text-decoration: none;
-      border-radius: 0.375rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .btn-color:hover {
-      background-color: #007c8c;
-      color: white;
-      transform: translateY(-1px);
-    }
-
-    /* Estilos de Formulario (Reemplazo de form-control, mb-3, etc.) */
-    .form-group {
-        margin-bottom: 1rem; /* Reemplazo de .mb-3 */
-    }
-    
-    .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-    }
-    
-    .form-control {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        border: 1px solid #ced4da;
-        border-radius: 0.25rem;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    }
-
-    .form-control:focus {
-        border-color: #0097a7;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(0, 151, 167, 0.25);
-    }
-    
-    /* Contenedor de botones de contacto (para separar los CTA de la sección contacto) */
-    .contact-buttons-wrapper {
-        display: flex; 
-        gap: 1rem; 
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
-        justify-content: center;
-    }
-    
-    /* ===== PIE (FOOTER) - BOTÓN CENTRADO ===== */
-    footer {
-      text-align: center;
-      color: #555;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-      background: rgba(240, 244, 247, 0.9);
-    }
-
-    /*
-     * ======================================================
-     * MEDIA QUERIES (OPTIMIZACIÓN MÓVIL)
-     * ======================================================
-     */
-    @media (max-width: 768px) {
-      
-      body { 
-        padding-top: var(--total-fixed-height-mobile); 
-      }
-      
-      header {
-        height: var(--header-height-mobile); 
-        padding: 0.5rem 1rem;
-      }
-      
-      .header-text h1 { 
-        font-size: 1.4rem; 
-      }
-      
-      .header-text p { 
-        font-size: 0.8rem; 
-        line-height: 1.1; 
-      }
-      
-      .header-photo { 
-        width: 65px; 
-        height: 65px;
-      }
-      
-      /* NAV BAR EN MÓVIL: Mostrar el Toggler y Ocultar el menú por defecto */
-      .navbar {
-        top: var(--header-height-mobile);
-        /* Flexbox simple para alinear Toggler a la derecha */
-        justify-content: flex-end; 
-        align-items: center;
-      }
-
-      .navbar-toggler {
-        display: block; /* Mostrar el botón Toggler en móvil */
-      }
-      
-      .navbar-menu {
-          display: none; /* Ocultar el menú por defecto */
-          position: absolute;
-          top: var(--navbar-height-mobile);
-          left: 0;
-          width: 100%;
-          background-color: rgba(31, 42, 68, 0.99); 
-          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-          flex-direction: column;
-          align-items: center;
-      }
-
-      .navbar-menu.show {
-          display: flex; /* Mostrar el menú cuando se active la clase 'show' */
-      }
-      
-      .navbar-nav {
-          flex-direction: column;
-          width: 100%;
-          padding: 1rem 0;
-      }
-
-      .navbar-nav li {
-          width: 100%;
-          text-align: center;
-          margin: 0;
-      }
-      
-      .navbar-nav .nav-link {
-          padding: 0.5rem 1rem;
-      }
-      
-      /* Scroll Offset para móvil */
-      @supports (scroll-margin-top: 1px) {
-          section {
-              scroll-margin-top: var(--total-fixed-height-mobile);
-          }
-      }
-    }
-    
-    /* MEDIA QUERY PARA PANTALLAS SÚPER PEQUEÑAS (CORRECCIÓN CRÍTICA DE TEXTO) */
-    @media (max-width: 600px) {
-        .header-text h1 { 
-            font-size: 1.2rem; 
+        /* 2. Tipografía y Optimización (Mobile-First) */
+        @media (min-width: 768px) {
+            :root {
+                --font-size-base: 15px;
+                --spacing-base: 1.5rem;
+            }
         }
-        .header-text p { 
-            font-size: 0.6rem; 
-            line-height: 1;
+        @media (min-width: 1200px) {
+            :root {
+                --font-size-base: 16px;
+                --spacing-base: 2rem;
+            }
         }
-        .header-photo {
-             width: 55px;
-             height: 55px;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
-  </style>
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+            font-weight: 400;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* 4. Menú de Navegación Horizontal (Top Nav) */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--topnav-height);
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-base);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand h1 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            color: var(--accent);
+        }
+
+        .brand span {
+            font-size: 0.75rem;
+            color: var(--text-sec);
+            font-weight: 200;
+        }
+
+        .top-links {
+            display: none; /* Oculto en móvil */
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-download {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-family: var(--font-title);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: var(--accent);
+            color: var(--bg-main);
+        }
+
+        .lang-toggle {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-weight: 400;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-toggle:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 992px) {
+            .top-links {
+                display: flex;
+            }
+            .menu-toggle {
+                display: none;
+            }
+            .top-nav {
+                padding-left: calc(var(--sidebar-width) + var(--spacing-base));
+                transition: padding-left 0.3s ease;
+            }
+            body.sidebar-collapsed .top-nav {
+                padding-left: calc(var(--sidebar-collapsed-width) + var(--spacing-base));
+            }
+        }
+
+        /* 5. Menú Vertical (Sidebar) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: var(--bg-sidebar);
+            z-index: 2000;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.5);
+            transition: left 0.3s ease, width 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar {
+                left: 0;
+            }
+            body.sidebar-collapsed .sidebar {
+                width: var(--sidebar-collapsed-width);
+            }
+        }
+
+        .profile-container {
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: width 0.3s ease, height 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-card);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body.sidebar-collapsed .profile-img-wrapper {
+            width: 50px;
+            height: 50px;
+            border-width: 1px;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            color: var(--text-sec);
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .sidebar-link i {
+            width: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-right: 15px;
+            transition: margin 0.3s ease;
+        }
+
+        .sidebar-link:hover, .sidebar-link.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .link-text {
+            transition: opacity 0.2s ease;
+        }
+
+        body.sidebar-collapsed .link-text {
+            display: none;
+        }
+        
+        body.sidebar-collapsed .sidebar-link {
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        body.sidebar-collapsed .sidebar-link i {
+            margin-right: 0;
+        }
+
+        .collapse-btn {
+            display: none;
+            padding: 1rem;
+            background: #090c10;
+            color: var(--text-sec);
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            border-top: 1px solid #30363d;
+        }
+
+        .collapse-btn:hover {
+            color: var(--accent);
+        }
+
+        @media (min-width: 992px) {
+            .collapse-btn {
+                display: block;
+            }
+        }
+
+        /* 6. Área de Contenido Dinámico (Main) */
+        .main-content {
+            padding: calc(var(--topnav-height) + var(--spacing-base)) var(--spacing-base) var(--spacing-base);
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+
+        @media (min-width: 992px) {
+            .main-content {
+                margin-left: var(--sidebar-width);
+                padding: calc(var(--topnav-height) + 2rem) 3rem 2rem;
+            }
+            body.sidebar-collapsed .main-content {
+                margin-left: var(--sidebar-collapsed-width);
+            }
+        }
+
+        /* Tarjetas (Cards) */
+        .card {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            color: var(--text-sec);
+            text-align: justify;
+        }
+        
+        .card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-sec);
+        }
+        
+        .card ul li::before {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .highlight {
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* Animación Fade In (Forzar Reflujo) */
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Overlay Móvil */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 1500;
+            backdrop-filter: blur(3px);
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-overlay {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="animated-bg"></div>
 
-  <header>
-    <div class="header-text">
-      <h1>Juan Carlos Veizaga Miranda</h1>
-      <p>Ingeniero de Sistemas – Administrador Financiero - MBA – MBTI.</p>
-      <p>Oficial de Seguridad de la Información ASFI | GRC y Ciberseguridad |Gestión de Procesos |</p>
-      <p>Gestión Estrategia Financiera y Tecnológica / Factor Humano TI&Big5 | SCRUM Manager |</p>
-      <p>📧 juancarlosveizagamiranda@gmail.com | 📞 +591 680 680 40</p>
-    </div>
-    <img src="cv.png" alt="Foto de Juan Carlos Veizaga Miranda" class="header-photo">
-  </header>
-
-  <nav class="navbar">
-    <button class="navbar-toggler" type="button" onclick="toggleMenu()">
-        &#9776; </button>
-    
-    <div class="navbar-menu" id="navbarMenu">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#sobre" onclick="mostrar('sobre')">Sobre mí</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experiencia" onclick="mostrar('experiencia')">Experiencia</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certificaciones" onclick="mostrar('certificaciones')">Certificaciones</a></li>
-        <li class="nav-item"><a class="nav-link" href="#proyectos" onclick="mostrar('proyectos')">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto" onclick="mostrar('contacto')">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="container">
-    <section id="sobre" class="active">
-      <h3>Administrador de Sistemas y Gestión Operativa | Oficial de Seguridad GRC ante la ASFI | Especialista en Proyectos Tecnológicos iToT y Estrategia Financiera MBTI-Big5 | SCRUM Manager</h3>
-      <p>
-      Soy: <strong>Juan Carlos Veizaga Miranda</strong>, Ingeniero de Sistemas MBA e Ingeniería Financiera MBTI, con más de 25 años de experiencia, mi especialización se centra en: <strong>Gestión de Procesos para Proyectos Tecnológicos en Transformación Digital con Ciberseguridad iToT,</strong> y <strong>Aplicación de Estrategias Financieras apoyadas en la Gestión Estratégica del Factor Humano TI&Big5</strong>.
-      </p>
-      <p>
-        Como profesional multidisciplinario, he liderado la implementación y optimización de procesos en entornos corporativos, comerciales e industriales. Destaco en la integración de estrategias financieras, operativas y tecnológicas, con una sólida capacidad para liderar equipos y aplicar metodologías ágiles (SCRUM).
-      </p>
-      <p>
-        Mi perfil combina una formación técnica avanzada en sistemas y una visión gerencial en administración y finanzas. He dirigido la implementación de soluciones sostenibles y eficientes en base a estándares internacionales (ISO 27001, NIST, COBIT) y normativos locales (ASFI), enfocándome en la consolidación de arquitecturas de nube privada, automatización e Inteligencia Artificial aplicada a la gestión de data y seguridad.
-      </p>
-      <div class="iconos" style="text-align: center; margin-top: 1.5rem; font-size: 1.8rem; display: flex; justify-content: center; gap: 1.5rem;">
-        <span title="CPU / Tecnología">💻</span>
-        <span title="Seguridad">🛡️</span>
-        <span title="Nube">☁️</span>
-      </div>
-    </section>
-
-    <section id="experiencia">
-      <h3>Experiencia Profesional</h3>
-      <ul>
-        <li><strong>Administrador de Sala – Supermercado Cadena Mayorista Abasto del Sur</strong> (2022 – Actualidad): •	Gestión integral de operaciones diarias en sala de supermercado para distribución mayorista con soporte MBTI-Big5.</li>
-        <li><strong>Administrador de Sistemas – FIPADE SAFI S.A. (Financiera para el Desarrollo) </strong> (2018 – 2021): •	Oficial de Seguridad de la Información, responsable sobre la política de seguridad de la información y cumplimiento normativo (RGSI ASFI), Gestion de infraestructura de informacion LAN/WAN ERP/CRM, Procesos documentados segun estandares reconocidos.</li>
-        <li><strong>Gerente de Proyectos (SCRUM Manager) – Comsercom (Sistemas Informáticos):</strong> (2013 – 2017):  •	Dirección y desarrollo de proyectos de infraestructura de redes y sistemas ERP, CRM y MRP.
-                    •	Implementación de arquitectura cliente/servidor LAMP y metodologías ágiles SCRUM.
-                    •	Gestión de bases de datos y análisis predictivo en la nube (Microsoft Fabric, Data Lake-PowerBI).</li>
-        <li><strong>Jefatura del Departamento de Sistemas – Grupo Alcos S.A. (Laboratorio Farmacéutico)</strong> (2003 – 2013): •	Gestión de sistemas ERP, BI, redes estructuradas y comunicación TIC.
-                    •	Implementación de sistemas de control de inventarios, cobranzas y reportes web.
-                    •	Supervisión de soporte técnico y proyectos de infraestructura tecnológica.
-                    •	Implementación de sistema móvil propio para operaciones comerciales de preventa, cobranza, ofertas, promociones logísticas de ruteo PALM – Android, GSM-GPRS online Java to Informix.</li>
-      </ul>
-      <p>
-        Combino visión técnica y de negocio para generar valor real mediante la digitalización estratégica.
-      </p>
-      <div class="iconos" style="text-align: center; margin-top: 1.5rem; font-size: 1.8rem; display: flex; justify-content: center; gap: 1.5rem;">
-        <span title="Engranajes/Sistemas">⚙️</span>
-        <span title="Check/Validación">✔️</span>
-        <span title="Cerebro/IA">🧠</span>
-      </div>
-    </section>
-
-    <section id="certificaciones">
-      <h3>Certificaciones y Frameworks</h3>
-      <ul>
-        <li>Maestría en Gestión Estratégica del Factor Humano MBTI-Big5 – Escuela Europea de Negocios</li>
-        <li>Magíster en Gestión Financiera – Escuela Europea de Negocios</li>
-        <li>Administración Financiera – Universidad Real de la Cámara de Comercio de Bolivia</li>
-        <li>Ingeniería de Sistemas Administrativos – Universidad Real de la Cámara de Comercio de Bolivia </li>
-        <li>Programación Web Avanzada – EDUCOMSER</li>
-        <li>Administración de Bases de Datos – EDUCOMSER</li>
-        <li>Marketing y Comercio Internacional – UREAL</li>
-        <li>Estructuración de Bases de Datos y Microsistemas – UPEA</li>
-      </ul>
-    </section>
-
-    <section id="proyectos">
-      <h3>Proyectos Destacados</h3>
-      <ul>
-        <li><strong>Nube Privada Híbrida:</strong> Infraestructura virtualizada con Proxmox, Docker y Kubernetes.</li>
-        <li><strong>KromaSystem ERP:</strong> Sistema modular con IA aplicada a gestión operativa y financiera.</li>
-        <li><strong>Auditorias ISO:</strong> Sistema documental multinorma (ISO 9001, 27001, 22301).</li>
-      </ul>
-      <p>Todos mis proyectos priorizan eficiencia, seguridad y escalabilidad.</p>
-    </section>
-
-    <section id="contacto">
-      <h3>Contacto</h3>
-      <form action="https://formspree.io/f/mzzpnvqd" method="POST">
-        <div class="form-group">
-          <label class="form-label">Nombre</label>
-          <input type="text" name="nombre" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Correo</label>
-          <input type="email" name="email" class="form-control" placeholder="tu.correo@ejemplo.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Mensaje</label>
-          <textarea name="mensaje" class="form-control" rows="4" required></textarea>
+    <!-- 4. Menú de Navegación Horizontal (Top Nav) -->
+    <nav class="top-nav">
+        <div class="brand">
+            <h1>JUAN CARLOS VEIZAGA MIRANDA</h1>
+            <span>(Prof.: Ing. Sistemas de Computaci&oacute;n Administrativa - Administraci&oacute;n Financiera &ndash; MBA -MBTI)</span>
         </div>
         
-        <button type="submit" class="btn-color">✉️ Enviar mensaje (Formulario)</button>
+        <button class="menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="top-links">
+            <a href="#" onclick="navigate('skill'); return false;" data-i18n-nav="skill">SKILL</a>
+            <a href="#" onclick="navigate('formacion'); return false;" data-i18n-nav="formacion">FORMACI&Oacute;N</a>
+            <a href="#" onclick="navigate('contacto'); return false;" data-i18n-nav="contacto">CONTACTO</a>
+            <a href="cv.pdf" download="iToT ProcessMaker & devTools cv.pdf" class="btn-download">
+                <i class="fa-solid fa-download"></i> <span data-i18n-nav="descargar">Descargar CV</span>
+            </a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <i class="fa-solid fa-globe"></i> <span id="current-lang-display">ES</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Overlay para móvil -->
+    <div class="sidebar-overlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- 5. Menú Vertical (Sidebar) -->
+    <aside class="sidebar" id="sidebar">
+        <div class="profile-container">
+            <div class="profile-img-wrapper">
+                <img src="cv.png" alt="Perfil" class="profile-img" onerror="this.outerHTML='<svg class=\'profile-img\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'100\' height=\'100\' fill=\'#1f242d\'/><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'none\' stroke=\'#00f2fe\' stroke-width=\'2\'/><text x=\'50\' y=\'55\' font-family=\'\'Barlow Condensed\', sans-serif\' font-size=\'35\' font-weight=\'300\' fill=\'#c9d1d9\' text-anchor=\'middle\' alignment-baseline=\'middle\'>CV</text></svg>'">
+            </div>
+        </div>
         
-      </form>
+        <nav class="sidebar-nav">
+            <a class="sidebar-link" onclick="navigate('resumen'); return false;">
+                <i class="fa-solid fa-briefcase"></i> <span class="link-text" data-i18n-nav="resumen">Resumen</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('formacion'); return false;">
+                <i class="fa-solid fa-graduation-cap"></i> <span class="link-text" data-i18n-nav="formacion_side">Formaci&oacute;n</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('complementaria'); return false;">
+                <i class="fa-solid fa-certificate"></i> <span class="link-text" data-i18n-nav="complementaria">Complementaria</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('habilidades'); return false;">
+                <i class="fa-solid fa-cogs"></i> <span class="link-text" data-i18n-nav="habilidades">Habilidades</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('idiomas'); return false;">
+                <i class="fa-solid fa-language"></i> <span class="link-text" data-i18n-nav="idiomas">Idiomas</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('disponibilidad'); return false;">
+                <i class="fa-solid fa-clock"></i> <span class="link-text" data-i18n-nav="disponibilidad">Disponibilidad</span>
+            </a>
+            <a class="sidebar-link" onclick="navigate('contacto'); return false;">
+                <i class="fa-solid fa-envelope"></i> <span class="link-text" data-i18n-nav="contacto_side">Contacto</span>
+            </a>
+        </nav>
 
-      <p style="margin-top: 2rem;">Para consultas profesionales, colaboraciones o solicitudes de consultoría, por favor utilice estos métodos de contacto directo (funcionan sin internet):</p>
-      
-      <div class="contact-buttons-wrapper">
-        <a href="mailto:juancarlosveizagamiranda@gmail.com?subject=Consulta%20Profesional%20desde%20Portafolio%20Web" class="btn-color">
-            📧 Enviar Correo Electrónico
-        </a>
-        <a href="https://wa.me/59168068040?text=Hola%20Juan%20Carlos,%20lo%20contacto%20desde%20su%20portafolio%20web." class="btn-color">
-            💬 Contactar por WhatsApp
-        </a>
-        <a href="tel:+59168068040" class="btn-color">
-            📞 Llamar ahora
-        </a>
-      </div>
-      
-      <p style="margin-top: 1.5rem; text-align: center;">También puede encontrarme en mi perfil profesional de alta autoridad:</p>
-      <div style="text-align: center;">
-          <a href="https://www.linkedin.com/in/juancarlosveizagamiranda/" target="_blank" class="btn-color">
-              🔗 LinkedIn
-          </a>
-      </div>
-    </section>
-  </main>
+        <button class="collapse-btn" onclick="toggleSidebarCollapse()">
+            <i class="fa-solid fa-chevron-left" id="collapse-icon"></i>
+        </button>
+    </aside>
 
-  <footer>
-    <a href="cv.pdf" class="btn-color" download>📄 Descargar CV (PDF)</a>
-    <p style="margin-top: 0.5rem;">© 2025 Juan Carlos Veizaga Miranda | Todos los derechos reservados</p>
-  </footer>
+    <!-- 6. Área de Contenido Dinámico (Main) -->
+    <main class="main-content">
+        <div id="content-container">
+            <!-- El contenido se inyecta vía JS aquí -->
+        </div>
+    </main>
 
-  <script>
-    // Función de alternar menú para móvil
-    function toggleMenu() {
-        const menu = document.getElementById('navbarMenu');
-        menu.classList.toggle('show');
-    }
-    
-    // Función para mostrar la sección y realizar el desplazamiento
-    function mostrar(id) {
-      // 1. Ocultar todas las secciones
-      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-      
-      // 2. Mostrar la sección destino
-      const target = document.getElementById(id);
-      target.classList.add("active");
+    <!-- 7. Lógica JavaScript (i18n y Routing) -->
+    <script>
+        // ESTADO GLOBAL
+        let currentLang = 'es';
+        let currentView = 'skill';
 
-      // 3. Calcular el offset (Header + Navbar)
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const navbarHeight = document.querySelector('.navbar').offsetHeight;
-      const offsetTop = headerHeight + navbarHeight + 5; 
+        // 3. Prevención de Errores: Diccionario con Entidades HTML OBLIGATORIAS
+        const resumeData = {
+            es: {
+                nav: {
+                    skill: "SKILL",
+                    formacion: "FORMACI&Oacute;N",
+                    contacto: "CONTACTO",
+                    descargar: "Descargar CV",
+                    resumen: "Resumen (Exp.)",
+                    formacion_side: "Formaci&oacute;n",
+                    complementaria: "Complementaria",
+                    habilidades: "Habilidades",
+                    idiomas: "Idiomas",
+                    disponibilidad: "Disponibilidad",
+                    contacto_side: "Contacto"
+                },
+                views: {
+                    skill: `
+                        <div class="card">
+                            <h2>Resumen Profesional</h2>
+                            <p><span class="highlight">Perfil:</span> Ingeniero de Sistemas edge Computing - procesos ISO - Administrador Financiero (MBA - MBTI)</p>
+                            <p><span class="highlight">Enfoque:</span> Gesti&oacute;n de Procesos en Proyectos Tecnol&oacute;gicos | Estrategia Financiera y Tecnol&oacute;gica | Gesti&oacute;n Estrat&eacute;gica del Factor Humano TI&amp;Big5 |</p>
+                            <p><span class="highlight">Especialidad:</span> Estructurador EXO Framework EdgeComputing iAiToT | Especialista CMP-iA (Common Model Protocol para Inteligencia Artificial) |</p>
+                            <p><span class="highlight">Skills:</span> Formaci&oacute;n Gesti&oacute;n de proyectos Recursos humanos (RR. HH.) Consultor&iacute;a empresarial Consultor&iacute;a de TI Consultor&iacute;a de recursos humanos Interconexi&oacute;n en red Planificaci&oacute;n financiera Gesti&oacute;n de programas. Planificaci&oacute;n estrat&eacute;gica iA Trainer Agent / EXO Framework para EdgeComputing iToT.</p>
+                        </div>
+                        <div class="card">
+                            <h2>Experiencia Laboral (Historial)</h2>
+                            <ul>
+                                <li>Gesti&oacute;n Estrat&eacute;gica iToT con Inteligencia Artificial y Arquitectura de agentes iA Privada /CMP para Operaciones. | ForensID - La Paz, Bolivia | Ago 2025-Abr 2026</li>
+                                <li>Administrador de Sala | Supermercado Cadena Mayorista Abasto del Sur - Cochabamba, Bolivia | Dic 2021 - Abr 2025</li>
+                                <li>Administrador de Sistemas | FIPADE SAFI S.A. (Financiera para el Desarrollo) - La Paz, Bolivia | Mar 2018-Oct 2021</li>
+                                <li>Gerente de Proyectos (SCRUM Manager) | Comsercom (Sistemas Inform&aacute;ticos) - La Paz, Bolivia | Nov 2013-Dic 2017</li>
+                                <li>Jefatura del Departamento de Sistemas | Grupo Alcos S.A. (Laboratorio Farmac&eacute;utico) - La Paz, Bolivia | Ago 2003-Oct 2013</li>
+                                <li>Soporte T&eacute;cnico en Sistemas | Vianet SRL - La Paz, Bolivia | Mar 1998-Ago 2003</li>
+                                <li>Encargado &Aacute;rea de Printing | Meridian Laser Soft - Santiago de Chile | Feb 1996-Feb 1998</li>
+                                <li>Asistente de Dise&ntilde;o Gr&aacute;fico y Marketing | Zafiro Publicitarios - La Paz, Bolivia | Jul 1991-Dic 1992</li>
+                            </ul>
+                        </div>
+                    `,
+                    resumen: `
+                        <div class="card">
+                            <h2>Arquitecto iToT-iA</h2>
+                            <div class="meta-info">ForensID &mdash; La Paz, Bolivia | Ago 2025 &ndash; Abr 2026</div>
+                            <p>Como Arquitecto de Tecnolog&iacute;as de Datos para iToT y Agentes de Inteligencia de Negocio, estoy gestionando infraestructuras orientadas a la captura, procesamiento y explotaci&oacute;n de informaci&oacute;n en entornos industriales y comerciales.</p>
+                            <p>Dise&ntilde;o arquitecturas modernas basadas en contenedores, orquestadores y frameworks de desarrollo para habilitar anal&iacute;tica avanzada, inteligencia artificial y automatizaci&oacute;n mediante agentes inteligentes con enfoque de datos como activos estrat&eacute;gicos, optimizando operaciones, generando nuevos ingresos y fortaleciendo la toma de decisiones basada en datos.</p>
+                            <p>Estructuro e implemento granjas de servidores, data centers f&iacute;sicos o virtualizados en plataformas locales o en la nube con soberan&iacute;a tecnol&oacute;gica de forma privada y propietaria, para contar con ERPs, MRPs, CRMs modelos iA, LLMs, Correos, Chats, Office Libre, Routers, Firewalls seg&uacute;n se requiera en base a Dockers, Kubernetes y Orquestadores de acuerdo a la estrategia corporativa, el tama&ntilde;o y giro de negocio.</p>
+                            <ul>
+                                <li>Dise&ntilde;o y Arquitectura Operacional Corporativa de iA en Granjas de servidores de datos para oTiT para Data Centers Privados (F&iacute;sicos o Maquinas Virtualizadas para nube SAS o Host de datos) con soberan&iacute;a tecnol&oacute;gica local.</li>
+                                <li>Implementaci&oacute;n de contenedores e Infraestructura de Datos para IA (Data + iA iToT) - (GPU, clusters, cloud propia y distribuida).</li>
+                                <li>Uso de Proxmox, VMware Baremetal Privados para alojamiento de Aplicaciones de proceso de informaci&oacute;n con Dockers, Kubernetes y Orquestadores.</li>
+                                <li>Aplicaci&oacute;n de frameworks React como Larabel con PHP, Jason, Python para creaci&oacute;n de CMDs para consumo de Modelos y agentes bajo Plataformas Orquestadas de iA.</li>
+                                <li>Seguridad de IA (AI Security / Adversarial ML), Modelos IA Fundamentales aplicadas al giro del negocio (predictiva/aut&oacute;noma).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Administrador de Sala</h2>
+                            <div class="meta-info">Supermercado Cadena Mayorista Abasto del Sur &mdash; Cochabamba, Bolivia | Dic 2021 &ndash; Abr 2025</div>
+                            <p>Como administrador de Operaciones, fui responsable de la gesti&oacute;n integral de las actividades diarias en el entorno comerciales y log&iacute;sticos, asegurando eficiencia, rentabilidad y cumplimiento de objetivos estrat&eacute;gicos.</p>
+                            <p>Fui encargado de planificar, controlar y optimizar el uso de recursos financieros en tecnolog&iacute;a, alineando el gasto TI con el valor de negocio as&iacute; como maximizar el valor del gasto en infraestructura y activos de tecnolog&iacute;a reduciendo costos innecesarios y mejorando la rentabilidad de la empresa.</p>
+                            <p>Supervise procesos clave como inventarios, abastecimiento, ventas, log&iacute;stica y flujo financiero, apoyado en sistemas ERP, CRM y anal&iacute;tica de datos en base a controles basados en KPIs para optimizar la rotaci&oacute;n, costos y niveles de servicio.</p>
+                            <p>Ejecute la gesti&oacute;n del talento humano operativo, basado en el trabajo de equipo, productividad y control de cumplimiento, permitiendo asegurar resultados favorables basados en la precepci&oacute;n del cliente final y en procura de la mejora continua en la cadena de valor de la empresa.</p>
+                            <ul>
+                                <li>Gesti&oacute;n integral de operaciones diarias en sala de supermercado para distribuci&oacute;n mayorista.</li>
+                                <li>Implementaci&oacute;n de sistemas y procesos de control de flujo de inventarios, pedidos, copras, pagos, log&iacute;stica y seguimiento en base a KPIs.</li>
+                                <li>Ejecuci&oacute;n de estrategias comerciales de mercadeo y financieras enfocadas en demanda, precio, costo, merchandising y rotaci&oacute;n.</li>
+                                <li>Aplicaci&oacute;n de an&aacute;lisis predictivo y alertas sistematizadas para optimizaci&oacute;n de procesos.</li>
+                                <li>Captaci&oacute;n de recursos humanos, mapeo de competencias, BD GAPs de talento, inducci&oacute;n, motivaci&oacute;n y balanceo de carga.</li>
+                                <li>Gesti&oacute;n y desarrollo de recursos, interpretaci&oacute;n de resultados por seguimiento y test, alineamiento a estrategia empresarial, KPIs de seguimiento y control de eficiencia y bienestar.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Administrador de Sistemas</h2>
+                            <div class="meta-info">FIPADE SAFI S.A. (Financiera para el Desarrollo) &mdash; La Paz, Bolivia | Mar 2018 &ndash; Oct 2021</div>
+                            <p>Como CEO de &aacute;rea de Sistemas y Oficial de Seguridad de la Informaci&oacute;n lidere la gesti&oacute;n integral de los activos tecnol&oacute;gicos, desde el dise&ntilde;o, estructuraci&oacute;n, traslados y cumplimiento de normativas y est&aacute;ndares SGSI de la infraestructura cr&iacute;tica de la empresa.</p>
+                            <p>Fui responsable de garantizar la confidencialidad, integridad y disponibilidad de la informaci&oacute;n mediante la implementaci&oacute;n de controles de seguridad, gesti&oacute;n de riesgos y cumplimiento normativo (RGSI-ASFI). Supervise las infraestructuras de redes de informaci&oacute;n y comunicaci&oacute;n LAN/WAN/WiFi, centros de datos, plataformas de respaldo, contingencias, virtualizadas y entornos h&iacute;bridos, asegurando resiliencia operativa.</p>
+                            <p>Coordine con entes reguladores y como Fui Oficial de Seguridad de la Informaci&oacute;n ante el ente regulador, fui parte de los Comit&eacute;s de gesti&oacute;n Operativa y tecnol&oacute;gica, aplique y establec&iacute; pol&iacute;ticas de seguridad alineadas al tama&ntilde;o y giro del negocio, adem&aacute;s, impulse la ciberseguridad activa, monitoreo continuo y respuesta ante incidentes, manteniendo la confianza digital y minimizando riesgos financieros y operativos.</p>
+                            <ul>
+                                <li>Infraestructura de redes LAN/WAN/WiFi (Fortinet, Mikrotik), Energ&iacute;a regulada, Redes de comunicaci&oacute;n y energ&iacute;a con redundancia.</li>
+                                <li>Seguridad perimetral, Alarmas, C&aacute;maras, Monitoreo, Respaldos Normados.</li>
+                                <li>Gesti&oacute;n de seguridad de la informaci&oacute;n activa en &aacute;reas de Ti, DMZ, Operativas y Externas.</li>
+                                <li>Administraci&oacute;n de servidores Windows, Linux, Unix VM-Pr&oacute;xmox Dokers y Kubernetes.</li>
+                                <li>Oficial de Seguridad de la Informaci&oacute;n, responsable sobre la pol&iacute;tica de seguridad de la informaci&oacute;n y cumplimiento normativo (RGSI ASFI).</li>
+                                <li>Coordinaci&oacute;n con entidades reguladoras (EDV, ASFI, BBV) y supervisi&oacute;n de software corporativo (CRM, BI, frameworks).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Gerente de Proyectos (SCRUM Manager)</h2>
+                            <div class="meta-info">Comsercom (Sistemas Inform&aacute;ticos) &mdash; La Paz, Bolivia | Nov 2013 &ndash; Dic 2017</div>
+                            <p>Como Gerente de Proyectos liderade bajo enfoque SCRUM, gestione la planificaci&oacute;n, ejecuci&oacute;n y entrega de iniciativas tecnol&oacute;gicas estrat&eacute;gicas, asegurando valor continuo del negocio del cliente; En mi rol integre metodolog&iacute;as &aacute;giles con visi&oacute;n ejecutiva, priorizando proyectos de alto impacto en ERP, CRM, MRP e infraestructura TI.</p>
+                            <p>Coordine y capacite a equipos multidisciplinarios, en temas de implementaci&oacute;n de sistemas de informaci&oacute;n, Operatividad, Seguridad de la Informaci&oacute;n y optimice recursos, buscando asegurar el cumplimiento de plazos, costos y funcionalidad comprometida seg&uacute;n los alcances, SLAs y estrategias formales de la empresa.</p>
+                            <p>Adem&aacute;s, impulse la transformaci&oacute;n digital mediante arquitecturas modernas como LAMP y soluciones de reportes corporativos como (Data Lake, Power BI), promoviendo la toma de decisiones basada en datos, innovaci&oacute;n continua y generaci&oacute;n de ventajas competitivas sostenibles.</p>
+                            <ul>
+                                <li>Direcci&oacute;n y desarrollo de proyectos de infraestructura de redes y sistemas ERP, CRM y MRP.</li>
+                                <li>Implementaci&oacute;n de arquitectura cliente/servidor LAMP y metodolog&iacute;as &aacute;giles SCRUM.</li>
+                                <li>Gesti&oacute;n de bases de datos y an&aacute;lisis predictivo en la nube (Microsoft Fabric, Data Lake-PowerBI).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Jefatura del Departamento de Sistemas</h2>
+                            <div class="meta-info">Grupo Alcos S.A. (Laboratorio Farmac&eacute;utico) &mdash; La Paz, Bolivia | Ago 2003 &ndash; Oct 2013</div>
+                            <p>Como jefe del departamento de Sistemas, lidere la planificaci&oacute;n, implementaci&oacute;n y control de la infraestructura tecnol&oacute;gica y los sistemas de informaci&oacute;n empresariales, con el objetivo de garantizar la continuidad operativa, seguridad de la informaci&oacute;n y eficiencia de los procesos de operaciones de datos e informaci&oacute;n de la empresa, mediante la gesti&oacute;n de plataformas como ERP, CRM y soluciones propias como el sistema de transacciones m&oacute;viles en punto final con dispositivos personales desde los cuales se generaban transacciones CRUD con Equipos PALM con java sobre internet GPRS directamente en l&iacute;nea al ERP en base a sockets.</p>
+                            <p>Adem&aacute;s, dise&ntilde;e, coordine e implemente varios proyectos tecnol&oacute;gicos, optimizando recursos de TI alineados a la estrategia empresarial de mercado e industria con los objetivos definidos por las gerencias del negocio, adem&aacute;s, supervise la calidad del soporte t&eacute;cnico, impulse la innovaci&oacute;n digital y asegure el cumplimiento de normativas como SGSI-ISO, promoviendo una arquitectura tecnol&oacute;gica escalable, segura y orientada a resultados.</p>
+                            <ul>
+                                <li>Gesti&oacute;n de sistemas ERP, BI, redes estructuradas y comunicaci&oacute;n TIC.</li>
+                                <li>Implementaci&oacute;n de sistemas de control de inventarios, cobranzas y reportes web.</li>
+                                <li>Supervisi&oacute;n de soporte t&eacute;cnico y proyectos de infraestructura tecnol&oacute;gica.</li>
+                                <li>Implementaci&oacute;n de sistema m&oacute;vil propio para operaciones comerciales de preventa, cobranza, ofertas, promociones log&iacute;sticas de ruteo PALM &ndash; Android, GSM-GPRS online Java to Informix.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Soporte T&eacute;cnico en Sistemas</h2>
+                            <div class="meta-info">Vianet SRL &mdash; La Paz, Bolivia | Mar 1998 &ndash; Ago 2003</div>
+                            <ul>
+                                <li>Instalaci&oacute;n y mantenimiento de redes de comunicaci&oacute;n y energ&iacute;a el&eacute;ctrica.</li>
+                                <li>Ventas corporativas y soporte t&eacute;cnico.</li>
+                            </ul>
+                        </div>
+                    `,
+                    formacion: `
+                        <div class="card">
+                            <h2>Formaci&oacute;n Acad&eacute;mica</h2>
+                            <h3>Postgrados</h3>
+                            <ul>
+                                <li>Maestr&iacute;a en Gesti&oacute;n Estrat&eacute;gica del Factor Humano MBTI-Big5 | Escuela Europea de Negocios - La Paz, Bolivia, 2023</li>
+                                <li>Mag&iacute;ster en Gesti&oacute;n Financiera | Escuela Europea de Negocios - La Paz, Bolivia, 2019</li>
+                            </ul>
+                            <h3>Grados</h3>
+                            <ul>
+                                <li>Administraci&oacute;n Financiera | Universidad Real de la C&aacute;mara de Comercio de Bolivia - La Paz, 2019</li>
+                                <li>Ingenier&iacute;a de Sistemas Administrativos | Universidad Real de la C&aacute;mara de Comercio de Bolivia - La Paz, 2017</li>
+                            </ul>
+                        </div>
+                    `,
+                    complementaria: `
+                        <div class="card">
+                            <h2>Formaci&oacute;n Complementaria</h2>
+                            <ul>
+                                <li>Programaci&oacute;n Web Avanzada, EDUCOMSER, 2015</li>
+                                <li>Administraci&oacute;n de Bases de Datos, EDUCOMSER, 2015</li>
+                                <li>Marketing y Comercio Internacional, UREAL, 2018</li>
+                                <li>Estructuraci&oacute;n de Bases de Datos y Microsistemas, UPEA, 2019</li>
+                            </ul>
+                        </div>
+                    `,
+                    habilidades: `
+                        <div class="card">
+                            <h2>Habilidades Profesionales</h2>
+                            <ul>
+                                <li>Gesti&oacute;n integral de proyectos y equipos multidisciplinarios MBTI-Big5.</li>
+                                <li>Dise&ntilde;o e implementaci&oacute;n de sistemas financieros y de control.</li>
+                                <li>Desarrollo y administraci&oacute;n de aplicaciones ERP, CRM, BI.</li>
+                                <li>Conocimiento avanzado en normas y est&aacute;ndares: COBIT, ITIL, CMMI, ISO 9000.</li>
+                                <li>Lenguajes de programaci&oacute;n: C#, Python, SQL, Java, PHP, JavaScript.</li>
+                                <li>Manejo avanzado de herramientas: Microsoft Office, MS Project, QlikView, Tableau.</li>
+                                <li>Administraci&oacute;n de sistemas operativos: Windows, Linux, Unix, VM-ProxMox.</li>
+                                <li>Gesti&oacute;n de seguridad inform&aacute;tica y redes: Fortinet, Mikrotik.</li>
+                                <li>Marketing MIX, an&aacute;lisis financiero y estrategia comercial.</li>
+                            </ul>
+                        </div>
+                    `,
+                    idiomas: `
+                        <div class="card">
+                            <h2>Idiomas</h2>
+                            <ul>
+                                <li>Espa&ntilde;ol (Nativo)</li>
+                                <li>Ingl&eacute;s (Intermedio-Avanzado)</li>
+                                <li>Quechua (B&aacute;sico-Intermedio)</li>
+                            </ul>
+                        </div>
+                    `,
+                    disponibilidad: `
+                        <div class="card">
+                            <h2>Disponibilidad</h2>
+                            <p>A coordinar seg&uacute;n proyecto y contrato.</p>
+                        </div>
+                    `,
+                    contacto: `
+                        <div class="card">
+                            <h2>Informaci&oacute;n de Contacto</h2>
+                            <ul>
+                                <li><span class="highlight">Celular:</span> +591 68068040</li>
+                                <li><span class="highlight">Correo Electr&oacute;nico:</span> juancarlosveizagamiranda@gmail.com</li>
+                                <li><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/juancarlosveizaqamiranda" target="_blank">https://www.linkedin.com/in/juancarlosveizaqamiranda</a></li>
+                                <li><span class="highlight">Web:</span> <a href="https://apksis.github.io/juancarlosveizagamiranda" target="_blank">https://apksis.github.io/juancarlosveizagamiranda</a></li>
+                                <li><span class="highlight">Licencia Conductor:</span> Cat "C"</li>
+                                <li><span class="highlight">Licencia Conductor Moto:</span> Cat "M"</li>
+                                <li><span class="highlight">Estado Civil:</span> Casado</li>
+                                <li><span class="highlight">Zona:</span> Villa Copacabana</li>
+                                <li><span class="highlight">Ciudad:</span> La Paz</li>
+                                <li><span class="highlight">Pais:</span> Bolivia</li>
+                            </ul>
+                        </div>
+                    `
+                }
+            },
+            en: {
+                nav: {
+                    skill: "SKILLS",
+                    formacion: "EDUCATION",
+                    contacto: "CONTACT",
+                    descargar: "Download CV",
+                    resumen: "Summary (Exp.)",
+                    formacion_side: "Education",
+                    complementaria: "Complementary",
+                    habilidades: "Skills",
+                    idiomas: "Languages",
+                    disponibilidad: "Availability",
+                    contacto_side: "Contact"
+                },
+                views: {
+                    skill: `
+                        <div class="card">
+                            <h2>Professional Summary</h2>
+                            <p><span class="highlight">Profile:</span> Edge Computing Systems Engineer - ISO processes - Financial Administrator (MBA - MBTI)</p>
+                            <p><span class="highlight">Focus:</span> Process Management in Technological Projects | Financial and Technological Strategy | Strategic Human Factor Management IT&amp;Big5 |</p>
+                            <p><span class="highlight">Specialty:</span> EXO Framework Structurer EdgeComputing iAiToT | CMP-iA Specialist (Common Model Protocol for Artificial Intelligence) |</p>
+                            <p><span class="highlight">Skills:</span> Training Project Management Human Resources (HR) Business Consulting IT Consulting HR Consulting Networking Financial Planning Program Management. Strategic Planning iA Trainer Agent / EXO Framework for EdgeComputing iToT.</p>
+                        </div>
+                        <div class="card">
+                            <h2>Work Experience (History)</h2>
+                            <ul>
+                                <li>Strategic iToT Management with Artificial Intelligence and Private iA Agent Architecture /CMP for Operations. | ForensID - La Paz, Bolivia | Aug 2025-Apr 2026</li>
+                                <li>Floor Administrator | Abasto del Sur Wholesale Chain Supermarket - Cochabamba, Bolivia | Dec 2021 - Apr 2025</li>
+                                <li>Systems Administrator | FIPADE SAFI S.A. (Financial for Development) - La Paz, Bolivia | Mar 2018-Oct 2021</li>
+                                <li>Project Manager (SCRUM Manager) | Comsercom (Computer Systems) - La Paz, Bolivia | Nov 2013-Dec 2017</li>
+                                <li>Head of Systems Department | Grupo Alcos S.A. (Pharmaceutical Lab) - La Paz, Bolivia | Aug 2003-Oct 2013</li>
+                                <li>IT Technical Support | Vianet SRL - La Paz, Bolivia | Mar 1998-Aug 2003</li>
+                                <li>Printing Area Manager | Meridian Laser Soft - Santiago, Chile | Feb 1996-Feb 1998</li>
+                                <li>Graphic Design &amp; Marketing Assistant | Zafiro Publicitarios - La Paz, Bolivia | Jul 1991-Dec 1992</li>
+                            </ul>
+                        </div>
+                    `,
+                    resumen: `
+                        <div class="card">
+                            <h2>iToT-iA Architect</h2>
+                            <div class="meta-info">ForensID &mdash; La Paz, Bolivia | Aug 2025 &ndash; Apr 2026</div>
+                            <p>As a Data Technologies Architect for iToT and Business Intelligence Agents, I am managing infrastructures oriented to the capture, processing, and exploitation of information in industrial and commercial environments.</p>
+                            <p>I design modern architectures based on containers, orchestrators, and development frameworks to enable advanced analytics, artificial intelligence, and automation through intelligent agents with a focus on data as strategic assets, optimizing operations, generating new revenue, and strengthening data-driven decision making.</p>
+                            <p>I structure and implement server farms, physical or virtualized data centers in local or cloud platforms with technological sovereignty in a private and proprietary manner, to have ERPs, MRPs, CRMs, AI models, LLMs, Emails, Chats, Libre Office, Routers, Firewalls as required based on Dockers, Kubernetes, and Orchestrators according to the corporate strategy, size, and type of business.</p>
+                            <ul>
+                                <li>Corporate Operational AI Design and Architecture in Data server farms for oTiT for Private Data Centers (Physical or Virtualized Machines for SAS cloud or Data Host) with local technological sovereignty.</li>
+                                <li>Implementation of containers and Data Infrastructure for AI (Data + iA iToT) - (GPU, clusters, proprietary and distributed cloud).</li>
+                                <li>Use of Proxmox, Private Baremetal VMware for hosting Information processing applications with Dockers, Kubernetes, and Orchestrators.</li>
+                                <li>Application of React frameworks such as Laravel with PHP, JSON, Python for creating CMDs for consumption of Models and agents under Orchestrated AI Platforms.</li>
+                                <li>AI Security (Adversarial ML), Fundamental AI Models applied to the business core (predictive/autonomous).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Floor Administrator</h2>
+                            <div class="meta-info">Abasto del Sur Wholesale Supermarket &mdash; Cochabamba, Bolivia | Dec 2021 &ndash; Apr 2025</div>
+                            <p>As Operations Administrator, I was responsible for the comprehensive management of daily activities in the commercial and logistics environment, ensuring efficiency, profitability, and fulfillment of strategic objectives.</p>
+                            <p>I was in charge of planning, controlling, and optimizing the use of financial resources in technology, aligning IT spending with business value as well as maximizing the value of spending on infrastructure and technology assets, reducing unnecessary costs, and improving the company's profitability.</p>
+                            <p>I supervised key processes such as inventory, supply, sales, logistics, and financial flow, supported by ERP, CRM, and data analytics systems based on KPI-driven controls to optimize rotation, costs, and service levels.</p>
+                            <p>I executed the management of operational human talent, based on teamwork, productivity, and compliance control, ensuring favorable results based on final customer perception and seeking continuous improvement in the company's value chain.</p>
+                            <ul>
+                                <li>Comprehensive management of daily operations in the supermarket floor for wholesale distribution.</li>
+                                <li>Implementation of systems and processes to control inventory flow, orders, purchases, payments, logistics, and tracking based on KPIs.</li>
+                                <li>Execution of commercial marketing and financial strategies focused on demand, price, cost, merchandising, and rotation.</li>
+                                <li>Application of predictive analysis and systematic alerts for process optimization.</li>
+                                <li>Human resources recruitment, competency mapping, talent GAP DB, induction, motivation, and load balancing.</li>
+                                <li>Resource management and development, interpretation of results through monitoring and testing, alignment to corporate strategy, monitoring KPIs, and efficiency and wellness control.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Systems Administrator</h2>
+                            <div class="meta-info">FIPADE SAFI S.A. (Financial for Development) &mdash; La Paz, Bolivia | Mar 2018 &ndash; Oct 2021</div>
+                            <p>As CEO of the Systems area and Information Security Officer, I led the comprehensive management of technological assets, from the design, structuring, transfers, and compliance with regulations and ISMS standards of the company's critical infrastructure.</p>
+                            <p>I was responsible for guaranteeing the confidentiality, integrity, and availability of information through the implementation of security controls, risk management, and regulatory compliance (RGSI-ASFI). I supervised LAN/WAN/WiFi information and communication network infrastructures, data centers, backup platforms, contingencies, virtualized and hybrid environments, ensuring operational resilience.</p>
+                            <p>I coordinated with regulatory entities and as Information Security Officer before the regulatory entity, I was part of the Operational and Technological Management Committees, applied and established security policies aligned with the size and business type, furthermore, I promoted active cybersecurity, continuous monitoring, and incident response, maintaining digital trust and minimizing financial and operational risks.</p>
+                            <ul>
+                                <li>LAN/WAN/WiFi network infrastructure (Fortinet, Mikrotik), Regulated power, Communication and power networks with redundancy.</li>
+                                <li>Perimeter security, Alarms, Cameras, Monitoring, Standardized Backups.</li>
+                                <li>Active information security management in IT, DMZ, Operational, and External areas.</li>
+                                <li>Administration of Windows, Linux, Unix servers, VM-Proxmox, Dockers, and Kubernetes.</li>
+                                <li>Information Security Officer, responsible for the information security policy and regulatory compliance (RGSI ASFI).</li>
+                                <li>Coordination with regulatory entities (EDV, ASFI, BBV) and supervision of corporate software (CRM, BI, frameworks).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Project Manager (SCRUM Manager)</h2>
+                            <div class="meta-info">Comsercom (Computer Systems) &mdash; La Paz, Bolivia | Nov 2013 &ndash; Dec 2017</div>
+                            <p>As Project Manager leading under a SCRUM approach, I managed the planning, execution, and delivery of strategic technological initiatives, ensuring continuous value to the client's business; In my role I integrated agile methodologies with an executive vision, prioritizing high-impact projects in ERP, CRM, MRP, and IT infrastructure.</p>
+                            <p>I coordinated and trained multidisciplinary teams in areas of information system implementation, Operability, Information Security, and optimized resources, seeking to ensure compliance with deadlines, costs, and committed functionality according to scopes, SLAs, and formal company strategies.</p>
+                            <p>Furthermore, I promoted digital transformation through modern architectures like LAMP and corporate reporting solutions like (Data Lake, Power BI), promoting data-driven decision-making, continuous innovation, and the generation of sustainable competitive advantages.</p>
+                            <ul>
+                                <li>Direction and development of network infrastructure projects and ERP, CRM, and MRP systems.</li>
+                                <li>Implementation of LAMP client/server architecture and SCRUM agile methodologies.</li>
+                                <li>Database management and cloud predictive analysis (Microsoft Fabric, Data Lake-PowerBI).</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Head of Systems Department</h2>
+                            <div class="meta-info">Grupo Alcos S.A. (Pharmaceutical Lab) &mdash; La Paz, Bolivia | Aug 2003 &ndash; Oct 2013</div>
+                            <p>As head of the Systems department, I led the planning, implementation, and control of technological infrastructure and business information systems, aiming to ensure operational continuity, information security, and efficiency of the company's data and information operations processes, by managing platforms such as ERP, CRM, and proprietary solutions such as the mobile transaction system at endpoints with personal devices from which CRUD transactions were generated with PALM equipment with Java over GPRS internet directly online to the ERP based on sockets.</p>
+                            <p>Furthermore, I designed, coordinated, and implemented various technological projects, optimizing IT resources aligned with the corporate market and industry strategy with the objectives defined by business management, in addition, I supervised the quality of technical support, promoted digital innovation, and ensured compliance with regulations such as ISMS-ISO, promoting a scalable, secure, and results-oriented technological architecture.</p>
+                            <ul>
+                                <li>Management of ERP, BI systems, structured networks, and ICT communication.</li>
+                                <li>Implementation of inventory control systems, collections, and web reports.</li>
+                                <li>Supervision of technical support and technological infrastructure projects.</li>
+                                <li>Implementation of proprietary mobile system for commercial operations of presales, collection, offers, logistical routing promotions PALM &ndash; Android, GSM-GPRS online Java to Informix.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>IT Technical Support</h2>
+                            <div class="meta-info">Vianet SRL &mdash; La Paz, Bolivia | Mar 1998 &ndash; Aug 2003</div>
+                            <ul>
+                                <li>Installation and maintenance of communication networks and electrical power.</li>
+                                <li>Corporate sales and technical support.</li>
+                            </ul>
+                        </div>
+                    `,
+                    formacion: `
+                        <div class="card">
+                            <h2>Academic Education</h2>
+                            <h3>Postgraduate</h3>
+                            <ul>
+                                <li>Master's in Strategic Management of the Human Factor MBTI-Big5 | European School of Business - La Paz, Bolivia, 2023</li>
+                                <li>Master in Financial Management | European School of Business - La Paz, Bolivia, 2019</li>
+                            </ul>
+                            <h3>Undergraduate</h3>
+                            <ul>
+                                <li>Financial Administration | Universidad Real de la C&aacute;mara de Comercio de Bolivia - La Paz, 2019</li>
+                                <li>Administrative Systems Engineering | Universidad Real de la C&aacute;mara de Comercio de Bolivia - La Paz, 2017</li>
+                            </ul>
+                        </div>
+                    `,
+                    complementaria: `
+                        <div class="card">
+                            <h2>Complementary Education</h2>
+                            <ul>
+                                <li>Advanced Web Programming, EDUCOMSER, 2015</li>
+                                <li>Database Administration, EDUCOMSER, 2015</li>
+                                <li>Marketing and International Trade, UREAL, 2018</li>
+                                <li>Structuring of Databases and Microsystems, UPEA, 2019</li>
+                            </ul>
+                        </div>
+                    `,
+                    habilidades: `
+                        <div class="card">
+                            <h2>Professional Skills</h2>
+                            <ul>
+                                <li>Comprehensive management of multidisciplinary projects and teams MBTI-Big5.</li>
+                                <li>Design and implementation of financial and control systems.</li>
+                                <li>Development and administration of ERP, CRM, BI applications.</li>
+                                <li>Advanced knowledge of standards and norms: COBIT, ITIL, CMMI, ISO 9000.</li>
+                                <li>Programming languages: C#, Python, SQL, Java, PHP, JavaScript.</li>
+                                <li>Advanced handling of tools: Microsoft Office, MS Project, QlikView, Tableau.</li>
+                                <li>Operating systems administration: Windows, Linux, Unix, VM-ProxMox.</li>
+                                <li>Computer security and network management: Fortinet, Mikrotik.</li>
+                                <li>Marketing MIX, financial analysis, and commercial strategy.</li>
+                            </ul>
+                        </div>
+                    `,
+                    idiomas: `
+                        <div class="card">
+                            <h2>Languages</h2>
+                            <ul>
+                                <li>Spanish (Native)</li>
+                                <li>English (Intermediate-Advanced)</li>
+                                <li>Quechua (Basic-Intermediate)</li>
+                            </ul>
+                        </div>
+                    `,
+                    disponibilidad: `
+                        <div class="card">
+                            <h2>Availability</h2>
+                            <p>To be coordinated based on project and contract.</p>
+                        </div>
+                    `,
+                    contacto: `
+                        <div class="card">
+                            <h2>Contact Information</h2>
+                            <ul>
+                                <li><span class="highlight">Mobile:</span> +591 68068040</li>
+                                <li><span class="highlight">Email:</span> juancarlosveizagamiranda@gmail.com</li>
+                                <li><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/juancarlosveizaqamiranda" target="_blank">https://www.linkedin.com/in/juancarlosveizaqamiranda</a></li>
+                                <li><span class="highlight">Web:</span> <a href="https://apksis.github.io/juancarlosveizagamiranda" target="_blank">https://apksis.github.io/juancarlosveizagamiranda</a></li>
+                                <li><span class="highlight">Driver's License:</span> Cat "C"</li>
+                                <li><span class="highlight">Motorcycle License:</span> Cat "M"</li>
+                                <li><span class="highlight">Marital Status:</span> Married</li>
+                                <li><span class="highlight">Zone:</span> Villa Copacabana</li>
+                                <li><span class="highlight">City:</span> La Paz</li>
+                                <li><span class="highlight">Country:</span> Bolivia</li>
+                            </ul>
+                        </div>
+                    `
+                }
+            }
+        };
 
-      // 4. Desplazar la ventana para que el contenido inicie justo debajo de la navbar
-      const targetPosition = target.offsetTop;
-      window.scrollTo({
-          top: targetPosition - offsetTop,
-          behavior: 'smooth'
-      });
+        // DOM Elements
+        const contentContainer = document.getElementById('content-container');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const collapseIcon = document.getElementById('collapse-icon');
 
-      // 5. Cerrar el menú si está abierto (solo en móvil)
-      const menu = document.getElementById('navbarMenu');
-      if (menu.classList.contains('show')) {
-        menu.classList.remove('show');
-      }
-    }
-    
-    // Mostrar la sección "Sobre mí" al cargar
-    document.addEventListener('DOMContentLoaded', () => {
-        const initialSection = document.getElementById('sobre');
-        if (initialSection) {
-            initialSection.classList.add('active');
+        // Función de Renderizado Dinámico
+        function renderContent() {
+            // Eliminar y re-añadir clase para forzar animación (Reflujo)
+            contentContainer.classList.remove('fade-in');
+            void contentContainer.offsetWidth; // Force reflow
+            
+            // Inyectar HTML desde Diccionario (100% puro)
+            contentContainer.innerHTML = resumeData[currentLang].views[currentView];
+            contentContainer.classList.add('fade-in');
+            
+            // Actualizar textos de menús por i18n
+            document.querySelectorAll('[data-i18n-nav]').forEach(el => {
+                const key = el.getAttribute('data-i18n-nav');
+                if(resumeData[currentLang].nav[key]) {
+                    el.innerHTML = resumeData[currentLang].nav[key];
+                }
+            });
+
+            // Resaltar menú activo
+            document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+            // Lógica simple de highlight basada en onclick string
+            const activeLinks = document.querySelectorAll(`.sidebar-link[onclick*="'${currentView}'"]`);
+            if(activeLinks.length > 0) activeLinks[0].classList.add('active');
         }
-    });
-  </script>
+
+        // Función de Navegación
+        function navigate(viewName) {
+            currentView = viewName;
+            renderContent();
+            // Cierre automático en móvil
+            if (window.innerWidth < 992) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        // Toggle Idioma
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('current-lang-display').textContent = currentLang.toUpperCase();
+            renderContent();
+        }
+
+        // Toggle Menú Móvil
+        function toggleMobileMenu() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Toggle Sidebar Desktop (Icon-only mode)
+        function toggleSidebarCollapse() {
+            document.body.classList.toggle('sidebar-collapsed');
+            if(document.body.classList.contains('sidebar-collapsed')){
+                collapseIcon.classList.remove('fa-chevron-left');
+                collapseIcon.classList.add('fa-chevron-right');
+            } else {
+                collapseIcon.classList.remove('fa-chevron-right');
+                collapseIcon.classList.add('fa-chevron-left');
+            }
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            renderContent();
+        });
+    </script>
 </body>
 </html>
