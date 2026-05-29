@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUAN CARLOS VEIZAGA MIRANDA - CV</title>
     
-    <!-- PRE-CARGA CRÍTICA DE FUENTES PARA EVITAR FOUT -->
+    <!-- PRE-CARGA CR�TICA DE FUENTES PARA EVITAR FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
             --spacing-base: 1rem;
         }
 
-        /* 2. Tipografía y Optimización (Mobile-First) */
+        /* 2. Tipograf�a y Optimizaci�n (Mobile-First) */
         @media (min-width: 768px) {
             :root {
                 --font-size-base: 15px;
@@ -82,7 +82,7 @@
             color: var(--accent);
         }
 
-        /* 4. Menú de Navegación Horizontal (Top Nav) */
+        /* 4. Men� de Navegaci�n Horizontal (Top Nav) */
         .top-nav {
             position: fixed;
             top: 0;
@@ -120,7 +120,7 @@
         }
 
         .top-links {
-            display: none; /* Oculto en móvil */
+            display: none; /* Oculto en m�vil */
             align-items: center;
             gap: 1.5rem;
         }
@@ -183,7 +183,7 @@
             }
         }
 
-        /* 5. Menú Vertical (Sidebar) */
+        /* 5. Men� Vertical (Sidebar) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -318,7 +318,7 @@
             }
         }
 
-        /* 6. Área de Contenido Dinámico (Main) */
+        /* 6. �rea de Contenido Din�mico (Main) */
         .main-content {
             padding: calc(var(--topnav-height) + var(--spacing-base)) var(--spacing-base) var(--spacing-base);
             min-height: 100vh;
@@ -401,7 +401,7 @@
             font-weight: 400;
         }
 
-        /* Animación Fade In (Forzar Reflujo) */
+        /* Animaci�n Fade In (Forzar Reflujo) */
         .fade-in {
             animation: fadeIn 0.4s ease-out forwards;
         }
@@ -417,7 +417,7 @@
             }
         }
         
-        /* Overlay Móvil */
+        /* Overlay M�vil */
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -443,7 +443,7 @@
 </head>
 <body>
 
-    <!-- 4. Menú de Navegación Horizontal (Top Nav) -->
+    <!-- 4. Men� de Navegaci�n Horizontal (Top Nav) -->
     <nav class="top-nav">
         <div class="brand">
             <h1>JUAN CARLOS VEIZAGA MIRANDA</h1>
@@ -467,10 +467,10 @@
         </div>
     </nav>
 
-    <!-- Overlay para móvil -->
+    <!-- Overlay para m�vil -->
     <div class="sidebar-overlay" onclick="toggleMobileMenu()"></div>
 
-    <!-- 5. Menú Vertical (Sidebar) -->
+    <!-- 5. Men� Vertical (Sidebar) -->
     <aside class="sidebar" id="sidebar">
         <div class="profile-container">
             <div class="profile-img-wrapper">
@@ -507,20 +507,20 @@
         </button>
     </aside>
 
-    <!-- 6. Área de Contenido Dinámico (Main) -->
+    <!-- 6. �rea de Contenido Din�mico (Main) -->
     <main class="main-content">
         <div id="content-container">
-            <!-- El contenido se inyecta vía JS aquí -->
+            <!-- El contenido se inyecta v�a JS aqu� -->
         </div>
     </main>
 
-    <!-- 7. Lógica JavaScript (i18n y Routing) -->
+    <!-- 7. L�gica JavaScript (i18n y Routing) -->
     <script>
         // ESTADO GLOBAL
         let currentLang = 'es';
         let currentView = 'skill';
 
-        // 3. Prevención de Errores: Diccionario con Entidades HTML OBLIGATORIAS
+        // 3. Prevenci�n de Errores: Diccionario con Entidades HTML OBLIGATORIAS
         const resumeData = {
             es: {
                 nav: {
@@ -548,8 +548,8 @@
                         <div class="card">
                             <h2>Experiencia Laboral (Historial)</h2>
                             <ul>
-                                <li>Gesti&oacute;n Estrat&eacute;gica iToT con Inteligencia Artificial y Arquitectura de agentes iA Privada /CMP para Operaciones. | ForensID - La Paz, Bolivia | Ago 2025-Abr 2026</li>
-                                <li>Administrador de Sala | Supermercado Cadena Mayorista Abasto del Sur - Cochabamba, Bolivia | Dic 2021 - Abr 2025</li>
+                                <li>Representante de Línea “aiDomot iToT” para ComSerCom - Arquitectura Tecnologica y agentes iA Privada / Laravel Livewire c/Informix. | La Paz, Bolivia | Ago 2025-Abr 2026</li>
+                                <li>Administrador de Operaci&oacute;nes | Supermercado Cadena Mayorista Abasto del Sur - Cochabamba, Bolivia | Dic 2021 - Abr 2025</li>
                                 <li>Administrador de Sistemas | FIPADE SAFI S.A. (Financiera para el Desarrollo) - La Paz, Bolivia | Mar 2018-Oct 2021</li>
                                 <li>Gerente de Proyectos (SCRUM Manager) | Comsercom (Sistemas Inform&aacute;ticos) - La Paz, Bolivia | Nov 2013-Dic 2017</li>
                                 <li>Jefatura del Departamento de Sistemas | Grupo Alcos S.A. (Laboratorio Farmac&eacute;utico) - La Paz, Bolivia | Ago 2003-Oct 2013</li>
@@ -561,8 +561,8 @@
                     `,
                     resumen: `
                         <div class="card">
-                            <h2>Arquitecto iToT-iA</h2>
-                            <div class="meta-info">ForensID &mdash; La Paz, Bolivia | Ago 2025 &ndash; Abr 2026</div>
+                            <h2>Representante de Línea “aiDomot iToT”</h2>
+                            <div class="meta-info">ComSerCom &mdash; La Paz, Bolivia | Ago 2025 &ndash; Abr 2026</div>
                             <p>Como Arquitecto de Tecnolog&iacute;as de Datos para iToT y Agentes de Inteligencia de Negocio, estoy gestionando infraestructuras orientadas a la captura, procesamiento y explotaci&oacute;n de informaci&oacute;n en entornos industriales y comerciales.</p>
                             <p>Dise&ntilde;o arquitecturas modernas basadas en contenedores, orquestadores y frameworks de desarrollo para habilitar anal&iacute;tica avanzada, inteligencia artificial y automatizaci&oacute;n mediante agentes inteligentes con enfoque de datos como activos estrat&eacute;gicos, optimizando operaciones, generando nuevos ingresos y fortaleciendo la toma de decisiones basada en datos.</p>
                             <p>Estructuro e implemento granjas de servidores, data centers f&iacute;sicos o virtualizados en plataformas locales o en la nube con soberan&iacute;a tecnol&oacute;gica de forma privada y propietaria, para contar con ERPs, MRPs, CRMs modelos iA, LLMs, Correos, Chats, Office Libre, Routers, Firewalls seg&uacute;n se requiera en base a Dockers, Kubernetes y Orquestadores de acuerdo a la estrategia corporativa, el tama&ntilde;o y giro de negocio.</p>
@@ -575,7 +575,7 @@
                             </ul>
                         </div>
                         <div class="card">
-                            <h2>Administrador de Sala</h2>
+                            <h2>Administrador de Operaciones</h2>
                             <div class="meta-info">Supermercado Cadena Mayorista Abasto del Sur &mdash; Cochabamba, Bolivia | Dic 2021 &ndash; Abr 2025</div>
                             <p>Como administrador de Operaciones, fui responsable de la gesti&oacute;n integral de las actividades diarias en el entorno comerciales y log&iacute;sticos, asegurando eficiencia, rentabilidad y cumplimiento de objetivos estrat&eacute;gicos.</p>
                             <p>Fui encargado de planificar, controlar y optimizar el uso de recursos financieros en tecnolog&iacute;a, alineando el gasto TI con el valor de negocio as&iacute; como maximizar el valor del gasto en infraestructura y activos de tecnolog&iacute;a reduciendo costos innecesarios y mejorando la rentabilidad de la empresa.</p>
@@ -916,9 +916,9 @@
         const overlay = document.querySelector('.sidebar-overlay');
         const collapseIcon = document.getElementById('collapse-icon');
 
-        // Función de Renderizado Dinámico
+        // Funci�n de Renderizado Din�mico
         function renderContent() {
-            // Eliminar y re-añadir clase para forzar animación (Reflujo)
+            // Eliminar y re-a�adir clase para forzar animaci�n (Reflujo)
             contentContainer.classList.remove('fade-in');
             void contentContainer.offsetWidth; // Force reflow
             
@@ -926,7 +926,7 @@
             contentContainer.innerHTML = resumeData[currentLang].views[currentView];
             contentContainer.classList.add('fade-in');
             
-            // Actualizar textos de menús por i18n
+            // Actualizar textos de men�s por i18n
             document.querySelectorAll('[data-i18n-nav]').forEach(el => {
                 const key = el.getAttribute('data-i18n-nav');
                 if(resumeData[currentLang].nav[key]) {
@@ -934,18 +934,18 @@
                 }
             });
 
-            // Resaltar menú activo
+            // Resaltar men� activo
             document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
-            // Lógica simple de highlight basada en onclick string
+            // L�gica simple de highlight basada en onclick string
             const activeLinks = document.querySelectorAll(`.sidebar-link[onclick*="'${currentView}'"]`);
             if(activeLinks.length > 0) activeLinks[0].classList.add('active');
         }
 
-        // Función de Navegación
+        // Funci�n de Navegaci�n
         function navigate(viewName) {
             currentView = viewName;
             renderContent();
-            // Cierre automático en móvil
+            // Cierre autom�tico en m�vil
             if (window.innerWidth < 992) {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
@@ -959,7 +959,7 @@
             renderContent();
         }
 
-        // Toggle Menú Móvil
+        // Toggle Men� M�vil
         function toggleMobileMenu() {
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
@@ -977,7 +977,7 @@
             }
         }
 
-        // Inicialización
+        // Inicializaci�n
         document.addEventListener('DOMContentLoaded', () => {
             renderContent();
         });
