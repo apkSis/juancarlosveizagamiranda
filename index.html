@@ -13,6 +13,17 @@
     <!-- Iconos (FontAwesome CSS Only) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+	<!-- ==========================================================================-->
+    <!-- WHATSAPP Icono de Font Awesome  WHATSAPP -->
+    <!-- ==========================================================================-->
+	<link rel="stylesheet" href="https://cloudflare.com">
+	<div id="whatsapp-float" class="whatsapp-btn">
+    	<i class="fab fa-whatsapp"></i>
+	</div>
+	<!-- ==========================================================================-->
+    <!-- WHATSAPP Icono de Font Awesome  WHATSAPP -->
+    <!-- ==========================================================================-->
+
     <style>
         /* 1. Tema y Estilos (Tech Neon Corporate) */
         :root {
@@ -439,6 +450,182 @@
                 display: none !important;
             }
         }
+
+/* ==========================================================================
+WHATSAPP Icono de Font Awesome  WHATSAPP
+========================================================================== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transición suave para el cambio de opacidad */
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+/* Animación de Latido */
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+@keyframes heartbeat {
+    from { transform: scale(1); }
+    10% { transform: scale(0.91); }
+    17% { transform: scale(0.98); }
+    33% { transform: scale(0.87); }
+    45% { transform: scale(1); }
+}
+
+/* Estado de semi-transparencia */
+.semi-transparent {
+    opacity: 0.5;
+}
+
+/* Efecto hover: Recupera brillo al pasar el mouse */
+.whatsapp-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+/* ==========================================================================
+WHATSAPP Icono de Font Awesome  WHATSAPP
+========================================================================== */
+
+/* ==========================================================================
+BANNERS tres banners BANNERS
+========================================================================== */
+
+/* Contenedor Grid Responsivo (Mobile-First) */
+.banners-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .banners-grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .banners-grid-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Forzar comportamiento de banner a la clase .card heredada */
+.banner-card {
+  padding: 0 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área multimedia (Proporción 16:9) */
+.banner-slider {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Transición limpia por Opacidad (Fade) */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide img, .slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Capa de texto sobre la imagen/video */
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.slide-percent {
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+}
+
+.slide-desc {
+  color: var(--text-main);
+  font-size: 0.85rem;
+  margin: 0.2rem 0 0 0;
+}
+
+/* Pie de la tarjeta (Fuera de la multimedia) */
+.banner-footer {
+  padding: 1rem;
+  background-color: var(--bg-card);
+}
+
+.banner-title {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-main);
+  font-size: 1.1rem;
+}
+
+/* Controladores de reproducción */
+.banner-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ctrl-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.ctrl-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ==========================================================================
+BANNERS tres banners BANNERS
+========================================================================== */
+
+
     </style>
 </head>
 <body>
@@ -455,7 +642,7 @@
         </button>
 
         <div class="top-links">
-            <a href="#" onclick="navigate('skill'); return false;" data-i18n-nav="skill">SKILL</a>
+            <a href="#" onclick="navigate('skills'); return false;" data-i18n-nav="skills">skills</a>
             <a href="#" onclick="navigate('formacion'); return false;" data-i18n-nav="formacion">FORMACI&Oacute;N</a>
             <a href="#" onclick="navigate('contacto'); return false;" data-i18n-nav="contacto">CONTACTO</a>
             <a href="cv.pdf" download="iToT ProcessMaker & devTools cv.pdf" class="btn-download">
@@ -479,8 +666,8 @@
         </div>
         
         <nav class="sidebar-nav">
-            <a class="sidebar-link" onclick="navigate('resumen'); return false;">
-                <i class="fa-solid fa-briefcase"></i> <span class="link-text" data-i18n-nav="resumen">Resumen</span>
+            <a class="sidebar-link" onclick="navigate('portafolio'); return false;">
+                <i class="fa-solid fa-briefcase"></i> <span class="link-text" data-i18n-nav="portafolio">Portafolio</span>
             </a>
             <a class="sidebar-link" onclick="navigate('formacion'); return false;">
                 <i class="fa-solid fa-graduation-cap"></i> <span class="link-text" data-i18n-nav="formacion_side">Formaci&oacute;n</span>
@@ -518,17 +705,17 @@
     <script>
         // ESTADO GLOBAL
         let currentLang = 'es';
-        let currentView = 'skill';
+        let currentView = 'skills';
 
         // 3. Prevenci�n de Errores: Diccionario con Entidades HTML OBLIGATORIAS
         const resumeData = {
             es: {
                 nav: {
-                    skill: "SKILL",
+                    skills: "RESUMEN",
                     formacion: "FORMACI&Oacute;N",
                     contacto: "CONTACTO",
                     descargar: "Descargar CV",
-                    resumen: "Resumen (Exp.)",
+                    portafolio: "Portafolio (intg.)",
                     formacion_side: "Formaci&oacute;n",
                     complementaria: "Complementaria",
                     habilidades: "Habilidades",
@@ -537,13 +724,124 @@
                     contacto_side: "Contacto"
                 },
                 views: {
-                    skill: `
+                    skills: `
+	<!-- ==========================================================================-->
+    <!-- BANNERS tres cards  BANNERS -->
+    <!-- ==========================================================================-->
+            <div class="banners-grid-container">
+                <!-- BANNER 1 -->
+                        <div class="card banner-card">
+                            <div class="banner-slider">
+                                <div class="slide active">
+                                    <video src="/img/Caso1a.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Cumplimiento Gobierno Seguridad:</span><p class="slide-desc">Oficial de Seguridad de la Información acreditado.</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <video src="/img/Caso1b.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Gestión de activos tecnológicos:</span><p class="slide-desc">Confidencialidad integridad disponibilidad información.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso1c.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Proyectos de infraestructuras:</span><p class="slide-desc">Redes Estructuradas Almabricas WiFi Energia.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso1d.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Arquitectura de Red Crítica:</span><p class="slide-desc">Redes LAN/WAN /VPNs (Fortinet, MikroTik).</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso1e.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Proyectos Llave en mano:</span><p class="slide-desc">Implementación Frameworks ágiles (SCRUM).</p></div>
+                                    </div>
+                                </div>
+                                    <div class="banner-footer">
+                                    <h3 class="banner-title">Administrador de Sistemas Tecnológicos iToT-iA</h3>
+                                    <div class="banner-controls">
+                                        <button class="ctrl-btn prev-btn">&#10094;</button>
+                                        <button class="ctrl-btn play-pause-btn">&#9646;&#9646;</button>
+                                        <button class="ctrl-btn next-btn">&#10095;</button>
+                                    </div>
+                            </div>
+                        </div>
+
+                <!-- BANNER 2 -->
+                        <div class="card banner-card">
+                            <div class="banner-slider">
+                                <div class="slide active">
+                                    <video src="/img/Caso2a.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Administrador de Operaciones:</span><p class="slide-desc">Gestión integral de operaciones comerciales.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso2b.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Optimización Financiera de TI:</span><p class="slide-desc">Gestion de rendimiento infraestructura tecnologica.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso2c.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Análisis Predictivo de Datos:</span><p class="slide-desc">Supervisión centralizada de datos financieros.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso2d.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Análisis predictivo tableros PowerBI:</span><p class="slide-desc">Dashboards de control en tiempo real.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso2e.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Dirección de Capital Humano:</span><p class="slide-desc">Estratégicas del comportamiento (MBTI - Big5).</p></div>
+                                    </div>
+                                </div>
+                                    <div class="banner-footer">
+                                    <h3 class="banner-title">Estrategia Financiera Factor Humano MBTI & Big5</h3>
+                                    <div class="banner-controls">
+                                        <button class="ctrl-btn prev-btn">&#10094;</button>
+                                        <button class="ctrl-btn play-pause-btn">&#9646;&#9646;</button>
+                                        <button class="ctrl-btn next-btn">&#10095;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                <!-- BANNER 3 -->
+                        <div class="card banner-card">
+                            <div class="banner-slider">
+                                 <div class="slide active">
+                                    <video src="/img/Caso3a.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Arquitecto Infraestructura SRE:</span><p class="slide-desc">Site Reliability Engineering.</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <video src="/img/Caso3b.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Representante de Línea Comercial:</span><p class="slide-desc">Arquitecto de Plataformas iToT aiDomot.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso3c.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Proyectos de infraestructuras:</span><p class="slide-desc">Redes Estructuradas Almabricas WiFi Energia.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso3d.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Ingeniería de Datos e iToT:</span><p class="slide-desc">Control de información en infraestructuras SCADA.</p></div>
+                                    </div>
+                                <div class="slide">
+                                    <video src="/img/Caso3e.mp4" muted loop playsinline></video>
+                                    <div class="slide-overlay"><span class="slide-percent">Estrategia Inteligente:</span><p class="slide-desc">Agentes de inteligencia de negocios autónomos.</p></div>
+                                    </div>
+                                </div>
+                                <div class="banner-footer">
+                                <h3 class="banner-title">Desarrollo CMP-iA Laravel Livewire Hibrido Propietario</h3>
+                                <div class="banner-controls">
+                                    <button class="ctrl-btn prev-btn">&#10094;</button>
+                                    <button class="ctrl-btn play-pause-btn">&#9646;&#9646;</button>
+                                    <button class="ctrl-btn next-btn">&#10095;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+	<!-- ==========================================================================-->
+    <!-- BANNERS tres cards  BANNERS -->
+    <!-- ==========================================================================-->       
                         <div class="card">
-                            <h2>Resumen Profesional</h2>
+                            <h2>Portafolio Profesional</h2>
                             <p><span class="highlight">Perfil:</span> Ingeniero de Sistemas edge Computing - procesos ISO - Administrador Financiero (MBA - MBTI)</p>
                             <p><span class="highlight">Enfoque:</span> Gesti&oacute;n de Procesos en Proyectos Tecnol&oacute;gicos | Estrategia Financiera y Tecnol&oacute;gica | Gesti&oacute;n Estrat&eacute;gica del Factor Humano TI&amp;Big5 |</p>
                             <p><span class="highlight">Especialidad:</span> Estructurador EXO Framework EdgeComputing iAiToT | Especialista CMP-iA (Common Model Protocol para Inteligencia Artificial) |</p>
-                            <p><span class="highlight">Skills:</span> Formaci&oacute;n Gesti&oacute;n de proyectos Recursos humanos (RR. HH.) Consultor&iacute;a empresarial Consultor&iacute;a de TI Consultor&iacute;a de recursos humanos Interconexi&oacute;n en red Planificaci&oacute;n financiera Gesti&oacute;n de programas. Planificaci&oacute;n estrat&eacute;gica iA Trainer Agent / EXO Framework para EdgeComputing iToT.</p>
+                            <p><span class="highlight">skills:</span> Formaci&oacute;n Gesti&oacute;n de proyectos Recursos humanos (RR. HH.) Consultor&iacute;a empresarial Consultor&iacute;a de TI Consultor&iacute;a de recursos humanos Interconexi&oacute;n en red Planificaci&oacute;n financiera Gesti&oacute;n de programas. Planificaci&oacute;n estrat&eacute;gica iA Trainer Agent / EXO Framework para EdgeComputing iToT.</p>
                         </div>
                         <div class="card">
                             <h2>Experiencia Laboral (Historial)</h2>
@@ -559,9 +857,9 @@
                             </ul>
                         </div>
                     `,
-                    resumen: `
+                    portafolio: `
                         <div class="card">
-                            <h2>Representante de Línea “aiDomot iToT”</h2>
+                            <h2>Representante de línea comercial / Arquitecto de plataforma para la línea “aiDomot iToT”</h2>
                             <div class="meta-info">ComSerCom &mdash; La Paz, Bolivia | Ago 2025 &ndash; Abr 2026</div>
                             <p>Como Arquitecto de Tecnolog&iacute;as de Datos para iToT y Agentes de Inteligencia de Negocio, estoy gestionando infraestructuras orientadas a la captura, procesamiento y explotaci&oacute;n de informaci&oacute;n en entornos industriales y comerciales.</p>
                             <p>Dise&ntilde;o arquitecturas modernas basadas en contenedores, orquestadores y frameworks de desarrollo para habilitar anal&iacute;tica avanzada, inteligencia artificial y automatizaci&oacute;n mediante agentes inteligentes con enfoque de datos como activos estrat&eacute;gicos, optimizando operaciones, generando nuevos ingresos y fortaleciendo la toma de decisiones basada en datos.</p>
@@ -717,11 +1015,11 @@
             },
             en: {
                 nav: {
-                    skill: "SKILLS",
+                    skills: "RESUME",
                     formacion: "EDUCATION",
                     contacto: "CONTACT",
                     descargar: "Download CV",
-                    resumen: "Summary (Exp.)",
+                    portafolio: "Portfolio (intg.)",
                     formacion_side: "Education",
                     complementaria: "Complementary",
                     habilidades: "Skills",
@@ -730,19 +1028,19 @@
                     contacto_side: "Contact"
                 },
                 views: {
-                    skill: `
+                    skills: `
                         <div class="card">
                             <h2>Professional Summary</h2>
                             <p><span class="highlight">Profile:</span> Edge Computing Systems Engineer - ISO processes - Financial Administrator (MBA - MBTI)</p>
                             <p><span class="highlight">Focus:</span> Process Management in Technological Projects | Financial and Technological Strategy | Strategic Human Factor Management IT&amp;Big5 |</p>
                             <p><span class="highlight">Specialty:</span> EXO Framework Structurer EdgeComputing iAiToT | CMP-iA Specialist (Common Model Protocol for Artificial Intelligence) |</p>
-                            <p><span class="highlight">Skills:</span> Training Project Management Human Resources (HR) Business Consulting IT Consulting HR Consulting Networking Financial Planning Program Management. Strategic Planning iA Trainer Agent / EXO Framework for EdgeComputing iToT.</p>
+                            <p><span class="highlight">skills:</span> Training Project Management Human Resources (HR) Business Consulting IT Consulting HR Consulting Networking Financial Planning Program Management. Strategic Planning iA Trainer Agent / EXO Framework for EdgeComputing iToT.</p>
                         </div>
                         <div class="card">
                             <h2>Work Experience (History)</h2>
                             <ul>
                                 <li>Strategic iToT Management with Artificial Intelligence and Private iA Agent Architecture /CMP for Operations. | ForensID - La Paz, Bolivia | Aug 2025-Apr 2026</li>
-                                <li>Floor Administrator | Abasto del Sur Wholesale Chain Supermarket - Cochabamba, Bolivia | Dec 2021 - Apr 2025</li>
+                                <li>Operations Manager | Abasto del Sur Wholesale Chain Supermarket - Cochabamba, Bolivia | Dec 2021 - Apr 2025</li>
                                 <li>Systems Administrator | FIPADE SAFI S.A. (Financial for Development) - La Paz, Bolivia | Mar 2018-Oct 2021</li>
                                 <li>Project Manager (SCRUM Manager) | Comsercom (Computer Systems) - La Paz, Bolivia | Nov 2013-Dec 2017</li>
                                 <li>Head of Systems Department | Grupo Alcos S.A. (Pharmaceutical Lab) - La Paz, Bolivia | Aug 2003-Oct 2013</li>
@@ -752,9 +1050,9 @@
                             </ul>
                         </div>
                     `,
-                    resumen: `
+                    portafolio: `
                         <div class="card">
-                            <h2>iToT-iA Architect</h2>
+                            <h2>Commercial Line Representative / Platform Architect for “aiDomot iToT” line</h2>
                             <div class="meta-info">ForensID &mdash; La Paz, Bolivia | Aug 2025 &ndash; Apr 2026</div>
                             <p>As a Data Technologies Architect for iToT and Business Intelligence Agents, I am managing infrastructures oriented to the capture, processing, and exploitation of information in industrial and commercial environments.</p>
                             <p>I design modern architectures based on containers, orchestrators, and development frameworks to enable advanced analytics, artificial intelligence, and automation through intelligent agents with a focus on data as strategic assets, optimizing operations, generating new revenue, and strengthening data-driven decision making.</p>
@@ -768,7 +1066,7 @@
                             </ul>
                         </div>
                         <div class="card">
-                            <h2>Floor Administrator</h2>
+                            <h2>Operations Manager</h2>
                             <div class="meta-info">Abasto del Sur Wholesale Supermarket &mdash; Cochabamba, Bolivia | Dec 2021 &ndash; Apr 2025</div>
                             <p>As Operations Administrator, I was responsible for the comprehensive management of daily activities in the commercial and logistics environment, ensuring efficiency, profitability, and fulfillment of strategic objectives.</p>
                             <p>I was in charge of planning, controlling, and optimizing the use of financial resources in technology, aligning IT spending with business value as well as maximizing the value of spending on infrastructure and technology assets, reducing unnecessary costs, and improving the company's profitability.</p>
@@ -859,7 +1157,7 @@
                     `,
                     habilidades: `
                         <div class="card">
-                            <h2>Professional Skills</h2>
+                            <h2>Professional skills</h2>
                             <ul>
                                 <li>Comprehensive management of multidisciplinary projects and teams MBTI-Big5.</li>
                                 <li>Design and implementation of financial and control systems.</li>
@@ -981,6 +1279,107 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderContent();
         });
+/* ==========================================================================
+WHATSAPP Icono de Font Awesome  WHATSAPP
+========================================================================== */
+	document.addEventListener("DOMContentLoaded", function() {
+    	const wsIcon = document.getElementById('whatsapp-float');
+
+    	// Activa el latido al cargar
+    	wsIcon.classList.add('heartbeat');
+
+    	// A los 5 segundos cambia el estado
+    	setTimeout(() => {
+        wsIcon.classList.remove('heartbeat');
+        wsIcon.classList.add('semi-transparent');
+    	}, 5000);
+
+    	// Acción al hacer clicLink a WhatsApp 
+    	wsIcon.addEventListener('click', () => {
+        window.open('https://wa.me/59168068040');
+    	});
+	});
+/* ==========================================================================
+WHATSAPP Icono de Font Awesome  WHATSAPP
+========================================================================== */
+
+/* ==========================================================================
+BANNERS tres banners BANNERS
+========================================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+  const INTERVAL_TIME = 4000; // Milisegundos entre rotaciones
+  const banners = document.querySelectorAll('.banner-card');
+
+  banners.forEach(banner => {
+    const slides = banner.querySelectorAll('.slide');
+    const playPauseBtn = banner.querySelector('.play-pause-btn');
+    const prevBtn = banner.querySelector('.prev-btn');
+    const nextBtn = banner.querySelector('.next-btn');
+    
+    let currentIndex = 0;
+    let isPlaying = true;
+    let timer = null;
+
+    const PLAY_SYMBOL = "&#9658;";   
+    const PAUSE_SYMBOL = "&#9646;&#9646;"; 
+
+    function handleVideoPlayback(slideElement, action) {
+      const video = slideElement.querySelector('video');
+      if (video) {
+        if (action === 'play' && isPlaying) {
+          video.currentTime = 0;
+          video.play().catch(() => {}); 
+        } else {
+          video.pause();
+        }
+      }
+    }
+
+    function showSlide(index) {
+      handleVideoPlayback(slides[currentIndex], 'pause');
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (index + slides.length) % slides.length;
+      slides[currentIndex].classList.add('active');
+      handleVideoPlayback(slides[currentIndex], 'play');
+    }
+
+    function nextSlide() { showSlide(currentIndex + 1); }
+    function prevSlide() { showSlide(currentIndex - 1); }
+
+    function startTimer() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(nextSlide, INTERVAL_TIME);
+    }
+
+    function stopTimer() { if (timer) clearInterval(timer); }
+
+    function togglePlayPause() {
+      if (isPlaying) {
+        isPlaying = false;
+        stopTimer();
+        playPauseBtn.innerHTML = PLAY_SYMBOL;
+        handleVideoPlayback(slides[currentIndex], 'pause');
+      } else {
+        isPlaying = true;
+        startTimer();
+        playPauseBtn.innerHTML = PAUSE_SYMBOL;
+        handleVideoPlayback(slides[currentIndex], 'play');
+      }
+    }
+
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    nextBtn.addEventListener('click', function() { nextSlide(); if (isPlaying) startTimer(); });
+    prevBtn.addEventListener('click', function() { prevSlide(); if (isPlaying) startTimer(); });
+
+    startTimer();
+    handleVideoPlayback(slides[currentIndex], 'play');
+  });
+});
+
+/* ==========================================================================
+BANNERS tres banners BANNERS
+========================================================================== */
+
     </script>
 </body>
 </html>
